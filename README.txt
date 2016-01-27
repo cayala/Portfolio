@@ -1,0 +1,2 @@
+-This is a series of projects and code samples of what I have coded
+-Some solutions might work others may not there were primarily exercises and not any code that was deployed

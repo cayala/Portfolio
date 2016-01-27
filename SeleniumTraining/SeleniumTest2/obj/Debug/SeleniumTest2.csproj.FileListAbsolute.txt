@@ -1,0 +1,11 @@
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\chromedriver.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\SeleniumTest2.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\SeleniumTest2.pdb
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\WebDriver.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\WebDriver.xml
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\obj\Debug\SeleniumTest2.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\obj\Debug\SeleniumTest2.pdb
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\WebDriver.Support.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\WebDriver.Support.xml
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\bin\Debug\IEDriverServer.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTest2\obj\Debug\SeleniumTest2.csprojResolveAssemblyReference.cache

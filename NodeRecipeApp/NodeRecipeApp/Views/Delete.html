@@ -1,0 +1,17 @@
+﻿<h1>Delete A Recipe</h1>
+<div >
+    <form ng-submit="deleteRecipe()">
+        <input type="text" name="Name" ng-model="deleteRecipeName.Name" />
+        <button class="button" type="submit">Delete</button>
+    </form>
+    <div class="error" ng-hide="recipeDeleteError">
+        <p>
+            The recipe you are trying to delete does not exist or the name was entered incorrectly
+        </p>
+    </div>
+    <div class="success" ng-show="recipeDeleteSuccess">
+        <p>
+            Delete was successful!!
+        </p>
+    </div>
+</div>

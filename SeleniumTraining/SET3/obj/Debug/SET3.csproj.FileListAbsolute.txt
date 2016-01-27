@@ -1,0 +1,9 @@
+C:\devHg\Training\SeleniumTraining\SET3\bin\Debug\SET3.dll
+C:\devHg\Training\SeleniumTraining\SET3\bin\Debug\SET3.pdb
+C:\devHg\Training\SeleniumTraining\SET3\bin\Debug\WebDriver.dll
+C:\devHg\Training\SeleniumTraining\SET3\bin\Debug\WebDriver.Support.dll
+C:\devHg\Training\SeleniumTraining\SET3\bin\Debug\WebDriver.xml
+C:\devHg\Training\SeleniumTraining\SET3\bin\Debug\WebDriver.Support.xml
+C:\devHg\Training\SeleniumTraining\SET3\obj\Debug\SET3.csprojResolveAssemblyReference.cache
+C:\devHg\Training\SeleniumTraining\SET3\obj\Debug\SET3.dll
+C:\devHg\Training\SeleniumTraining\SET3\obj\Debug\SET3.pdb

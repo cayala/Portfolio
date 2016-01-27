@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div ng-app="app">
+    <div ng-controller="xssGet">
+        <div>
+            <form ng-submit="getNumbers()">
+                <input type="number" ng-model="inputtedNumbers" />
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <button type="button" ng-click="ajaxGet()">AjaxGET</button>
+        <button type="button" ng-click="ajaxPost()">AjaxPOST</button>
+        <button type="button" ng-click="getViaJsonp()">JsonPGET</button>
+        <button type="button" ng-click="postNumbers()">CORS $HTTP POST</button>
+        <button type="button" ng-click="getNumbers()">CORS $HTTP GET</button>
+        <div>
+            <p ng-repeat="num in returnedNumbers">{{num}}</p>
+        </div>
+        <div>
+            <label>Get another web Page</label>
+            <button ng-click="getWebPage()">Get Page</button>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Angular.js"></script>

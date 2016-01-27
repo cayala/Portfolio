@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div ng-controller="SearchCtrl">
+        <div>
+            <h3>
+                Create Restaurant
+                <span>
+                    <a href="#" ng-click="hideAddForm = !hideAddForm" style="text-decoration:none" ng-hide="hideAddForm"> +</a>
+                    <a href="#" ng-click="hideAddForm = !hideAddForm" style="text-decoration:none" ng-show="hideAddForm"> -</a>
+                </span>
+            </h3>
+            <div ng-show="hideAddForm">
+                <form ng-submit="AddNewRes()">
+                    <label>Name</label>
+                    <br />
+                    <input type="text" ng-model="Restaurant.RestaurantName">
+                    <br />
+                    <label>Location</label>
+                    <br />
+                    <input type="text" ng-model="Restaurant.LandName" />
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h3>
+                Read (Search) Restaurant
+                <span>
+                    <a href="#" ng-click="hideReadForm = !hideReadForm" style="text-decoration:none" ng-hide="hideReadForm"> +</a>
+                    <a href="#" ng-click="hideReadForm = !hideReadForm" style="text-decoration:none" ng-show="hideReadForm"> -</a>
+                </span>
+            </h3>
+            <div ng-show="hideReadForm">
+                <form ng-submit="Search()">
+                    <input type="text" ng-model="SearchTerms" />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h3>
+                Update Restaurant
+                <span>
+                    <a href="#" ng-click="hideUpdateForm = !hideUpdateForm" style="text-decoration:none" ng-hide="hideUpdateForm"> +</a>
+                    <a href="#" ng-click="hideUpdateForm = !hideUpdateForm" style="text-decoration:none" ng-show="hideUpdateForm"> -</a>
+                </span>
+            </h3>
+            <div ng-show="hideUpdateForm">
+                <div ng-hide="updateStatusBar">
+                    <p ng-show="updateResponse" class="alert-success">Update was successfull!!</p>
+                    <p ng-hide="updateResponse" class="alert-danger">An error has occured</p>
+                </div>
+                <form ng-submit="UpdateForm">
+                    <label>Restaurant Name</label>
+                    <br />
+                    <input type="text" ng-model="updateForm.RName" />
+                    <br />
+                    <label>Land Name</label>
+                    <br />
+                    <input type="text" ng-model="updateForm.LName" />
+                </form>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+        <div>
+            <h3>
+                Delete Restaurant
+                <span>
+                    <a href="#" ng-click="hideDeleteForm = !hideDeleteForm" style="text-decoration:none" ng-hide="hideDeleteForm"> +</a>
+                    <a href="#" ng-click="hideDeleteForm = !hideDeleteForm" style="text-decoration:none" ng-show="hideDeleteForm"> -</a>
+                </span>
+            </h3>
+            <div ng-show="hideDeleteForm">
+                <div ng-hide="deleteStatusBar">
+                    <p ng-show="deleteResponse" class="alert-success">Delete was successfull!!</p>
+                    <p ng-hide="deleteResponse" class="alert-danger">An error has occured</p>
+                </div>
+                <form>
+                    <label>Enter Restaurant Name</label>
+                    <br />
+                    <input type="text" ng-model="deleteTerm" />
+                    <button type="button" ng-click="DeleteRestaurant()">Submit</button>
+                </form>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <button type="button" ng-click="ListAllRestaurants">Refresh</button>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>RestaurantName</td>
+                        <td>LandName</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in ResList">
+                        <td>{{row.Id}}</td>
+                        <td>{{row.RestaurantName}}</td>
+                        <td>{{row.LandName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+@section scripts{
+    <script src="~/Scripts/Angular.js"></script>
+    <script src="~/Scripts/AngularServices.js"></script>
+}

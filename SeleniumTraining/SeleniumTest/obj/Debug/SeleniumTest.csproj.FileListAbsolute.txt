@@ -1,0 +1,9 @@
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\SeleniumTest.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\SeleniumTest.pdb
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\WebDriver.xml
+C:\devHg\Training\SeleniumTraining\SeleniumTest\obj\Debug\SeleniumTest.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest\obj\Debug\SeleniumTest.pdb
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\chromedriver.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\WebDriver.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\WebDriver.Support.dll
+C:\devHg\Training\SeleniumTraining\SeleniumTest\bin\Debug\WebDriver.Support.xml

@@ -1,0 +1,19 @@
+﻿<h1>Online Timer</h1>
+<div >
+    <br />
+    <img src="https://lh3.ggpht.com/3iJdQQY4NVDMMZCttyCXFVa4RcUouZu3n5Hz30PEJzFvQcP3ErP-d81NOnv8FUH5Gb0=w300" />
+
+    <span id="timer" ng-model="timerDisplay" class="timer">{{timerDisplay.Hours}} H: {{timerDisplay.Minutes}} M : {{timerDisplay.Seconds}} S</span>
+    <hr />
+    <div id="timerInput">
+        <label>Hours</label>
+        <select ng-model="TimerModel.Hours" ng-options="hour as hour for hour in TimerArrays.Hours"></select>
+        <label>Minutes</label>
+        <select ng-model="TimerModel.Minutes" ng-options="min as min for min in TimerArrays.Minutes"></select>
+        <label>Seconds</label>
+        <select ng-model="TimerModel.Seconds" ng-options="sec as sec for sec in TimerArrays.Seconds"></select>
+        <button ng-disabled="disableButtons.Set" ng-click="setTimer()">Set</button>
+        <button ng-click="pauseTimer()" ng-disabled="disableButtons.Pause">Pause</button>
+        <button ng-disabled="disableButtons.Reset" ng-click="resetTimer()">Reset</button>
+    </div>
+</div>

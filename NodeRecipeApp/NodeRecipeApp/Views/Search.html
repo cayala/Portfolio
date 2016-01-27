@@ -1,0 +1,23 @@
+﻿<h1>Search</h1>
+<div>
+    <form ng-submit="search()">
+        Search: <input type="text" ng-model="searchText" />
+        <button type="submit" class="button">Search</button>
+        <button type="button" class="button" ng-click="refresh()">Refresh</button>
+    </form>
+    <hr />
+    <div class="grid-container">
+        <div class="row" ng-repeat="recipe in listOfRecipes track by $index" ng-if="$index%4==0">
+            <div class="col-1" ng-repeat="r in [$index,$index+1,$index+2,$index+3]" ng-if="listOfRecipes[r] != null">
+                <div>
+                    <img class="recipeImage" src="{{listOfRecipes[r].Image}}" />
+                    <a href="#/recipe" ng-click="setRecipeForDisplay(listOfRecipes[r])" class="anchor">{{listOfRecipes[r].Name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div ng-repeat="recipe in listOfRecipes track by $index | filter: searchText">
+    <img class="recipeImage" src="{{recipe.Image}}" />
+    <a href="#/recipe" ng-click="setRecipeForDisplay(recipe)" class="anchor">{{recipe.Name}}</a>
+</div>-->

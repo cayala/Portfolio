@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MinMaxAvgThread">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Minimum" Type="Int32" />
+    <Property Name="Maximum" Type="Int32" />
+    <Property Name="Average" Type="Int32" />
+    <Property Name="LastExecution" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TaskList" Relationship="Self.FK_TaskList" FromRole="MinMaxAvgThreads" ToRole="TaskList" />
+  </EntityType>
+  <EntityType Name="TaskList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NextExecution" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="MinMaxAvgThreads" Relationship="Self.FK_TaskList" FromRole="TaskList" ToRole="MinMaxAvgThreads" />
+  </EntityType>
+  <Association Name="FK_TaskList">
+    <End Role="TaskList" Type="Self.TaskList" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MinMaxAvgThreads" Type="Self.MinMaxAvgThread" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MinMaxAvgThreads">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrainingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MinMaxAvgThreads" EntityType="Self.MinMaxAvgThread" />
+    <EntitySet Name="TaskLists" EntityType="Self.TaskList" />
+    <AssociationSet Name="FK_TaskList" Association="Self.FK_TaskList">
+      <End Role="TaskList" EntitySet="TaskLists" />
+      <End Role="MinMaxAvgThreads" EntitySet="MinMaxAvgThreads" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,13 @@
+{
+  "name": "NodeRecipeApp",
+  "version": "0.0.0",
+  "description": "NodeRecipeApp",
+  "main": "server.js",
+  "author": {
+    "name": "carlos.ayala",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "^5.0.0-alpha.1
+  }
+

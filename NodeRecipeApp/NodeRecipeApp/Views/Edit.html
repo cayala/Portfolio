@@ -1,0 +1,98 @@
+﻿<h1>Edit Recipe</h1>
+<div >
+    <div ng-hide="EditMode">
+        <form ng-submit="getRecipeForEdit()">
+            <label>Enter Recipe Name</label>
+            <input type="text" name="Name" ng-model="editRecipe.Name" />
+            <button class="button" type="submit">Get Recipe</button>
+        </form>
+        <p class="error" ng-hide="recipeExist">
+            The recipe does not exist or is typed incorrectly
+        </p>
+        <p class="success" ng-show="formSubmitSuccess">Edit was successful<p>
+    </div>
+    <hr />
+    <div ng-hide="notInEditMode">
+        <form ng-submit="setRecipeChanges()" ng-model="editForm" name="editForm">
+            <label>Name</label>
+            <input type="text" name="Name" required ng-model="editRecipe.Name" />
+            <span ng-show="editForm.$submitted || editForm.Name.$touched">
+                <span class="error" ng-show="editForm.Name.$error.required">Please give a name</span>
+                <span class="error" ng-show="editForm.Name.$error.minlength">At least 1 character is required for a name</span>
+                <span class="error" ng-show="editForm.Name.$error.maxlength">A max of 50 characters is allowed</span>
+            </span>
+            <label>Type</label>
+            <select ng-model="editRecipe.TypeOfDish" name="TypeOfDish" required>
+                <option value="Appitizer">Appitizer</option>
+                <option value="Hors">Hors d' oeurvre</option>
+                <option value="Soup">Soup</option>
+                <option value="Entree">Entree</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+            <span ng-show="editForm.$submitted">
+                <span class="error" ng-show="editForm.TypeOfDish.$error.required">Select a dish type</span>
+            </span>
+            <label>Difficulty</label>
+            <select ng-model="editRecipe.Difficulty" name="Difficulty" ng-required="true">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+            <span ng-show="editForm.$submitted">
+                <span class="error" ng-show="editForm.Difficulty.$error.required">Please make a selection on difficulty</span>
+            </span>
+            <br />
+            <label>Amount of Time</label>
+            <br />
+            <label>Hours</label>
+            <input type="number" min="0" max="24" name="Hours" required ng-model="editRecipe.Hours" />
+            <span ng-show="editForm.$submitted || editForm.Hours.$touched">
+                <span class="error" ng-show="editForm.Hours.$error.required">Select an hour</span>
+                <span class="error" ng-show="editForm.Hours.$error.min">No numbers below 0</span>
+                <span class="error" ng-show="editForm.Hours.$error.max">No numbers above 24</span>
+            </span>
+            <label>Minutes</label>
+            <input type="number" min="0" max="59" name="Minutes" ng-model="editRecipe.Minutes" />
+            <span ng-show="editForm.$submitted || editForm.Minutes.$touched">
+                <span class="error" ng-show="editForm.Minutes.$error.required">Please input an amount of minutes</span>
+                <span class="error" ng-show="editForm.Minutes.$error.min">No numbers below 0</span>
+                <span class="error" ng-show="editForm.Minutes.$error.max">No numbers above 60</span>
+            </span>
+            <br />
+            <br />
+            <label>Ingredients</label>
+            <ul ng-repeat="ingredient in editRecipe.Ingredients track by $index">
+                <li>
+                    <input value="{{ingredient}}" ng-model="editRecipe.Ingredients[$index]" class="editMode" />
+                    <button class="button" type="button" ng-click="deleteIngredient(ingredient)">Delete</button>
+                </li>
+            </ul>
+            <label>Add Ingredient</label>
+            <input type="text" id="ingredient" ng-model="addInputIngreIndtrucValid.Ingredient">
+            <button class="button" type="button" ng-click="addIngredient()">Add</button>
+            <br />
+            <br />
+            <label>Instructions</label>
+            <ul ng-repeat="Instruction in editRecipe.Instructions track by $index">
+                <li>
+                    Step {{$index + 1}}
+                    <input ng-model="editRecipe.Instructions[$index]" type="text" />
+                    <button class="button" type="button" ng-click="deleteInstruction(Instruction)">Delete</button>
+                </li>
+            </ul>
+            <label>Add Step</label>
+            <input type="text" id="instruction" ng-model="addInputIngreIndtrucValid.Instruction" />
+            <button class="button" type="button" ng-click="addInstruction()">Add</button>
+            <br />
+            <br />
+            <label>Image</label>
+            <input type="url" ng-model="editRecipe.Image" required name="Image" />
+            <span ng-show="editForm.$submitted || editForm.Image.$touched">
+                <span class="error" ng-show="editForm.Image.$error.required">An image link is requried</span>
+                <span class="error" ng-show="editForm.Image.$error.url">This is not a valid url</span>
+            </span>
+            <br />
+            <button class="button" type="submit" ng-disabled="editForm.$invalid">Submit</button>
+        </form>
+    </div>
+</div>

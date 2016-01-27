@@ -1,0 +1,2 @@
+C:\devHg\Training\NodeRecipeApp\NodeRecipeApp\obj\Debug\NodeRecipeApp.njsprojResolveAssemblyReference.cache
+C:\devHg\Training\NodeRecipeApp\NodeRecipeApp\bin\Microsoft.NodejsTools.WebRole.dll

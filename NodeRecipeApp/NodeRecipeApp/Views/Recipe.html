@@ -1,0 +1,18 @@
+﻿<div ng-controller="search">
+    <img class="recipeImage" src="{{displayRecipe.Image}}" />
+    <h1>{{displayRecipe.Name}}</h1>
+    <a href="#/edit" class="anchor" ng-click="setName(displayRecipe.Name)">Edit</a>
+    <a href="#/delete" class="anchor" ng-click="setName(displayRecipe.Name)">Delete</a>
+    <p>Type: {{displayRecipe.TypeOfDish}}</p>
+    <p>Difficulty: <span>{{displayRecipe.Difficulty}}</span></p>
+    <p>Time: <span>{{displayRecipe.Hours}}</span> hours and <span>{{displayRecipe.Minutes}}</span> minutes</p>
+    <label>Ingredients: </label>
+    <ul ng-repeat="ingredient in displayRecipe.Ingredients track by $index">
+        <li>{{ingredient}}</li>
+    </ul>
+    <br />
+    <label>Instructions: </label>
+    <ul ng-repeat="instruction in displayRecipe.Instructions track by $index">
+        <li>Step {{$index + 1}}  {{instruction}}</li>
+    </ul>
+</div>

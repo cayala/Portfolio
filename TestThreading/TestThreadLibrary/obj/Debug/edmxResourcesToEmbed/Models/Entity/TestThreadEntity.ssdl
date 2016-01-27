@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MinMaxAvgThreads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Minimum" Type="int" />
+    <Property Name="Maximum" Type="int" />
+    <Property Name="Average" Type="int" />
+    <Property Name="LastExecution" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TaskId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TaskList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NextExecution" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TaskList">
+    <End Role="TaskList" Type="Self.TaskList" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MinMaxAvgThreads" Type="Self.MinMaxAvgThreads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MinMaxAvgThreads">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrainingModelStoreContainer">
+    <EntitySet Name="MinMaxAvgThreads" EntityType="Self.MinMaxAvgThreads" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaskList" EntityType="Self.TaskList" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TaskList" Association="Self.FK_TaskList">
+      <End Role="TaskList" EntitySet="TaskList" />
+      <End Role="MinMaxAvgThreads" EntitySet="MinMaxAvgThreads" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,9 @@
+C:\devHg\Training\TestThreading\TaskScheduler\bin\Debug\TaskScheduler.dll
+C:\devHg\Training\TestThreading\TaskScheduler\bin\Debug\TaskScheduler.pdb
+C:\devHg\Training\TestThreading\TaskScheduler\bin\Debug\TestThreadLibrary.dll
+C:\devHg\Training\TestThreading\TaskScheduler\bin\Debug\EntityFramework.dll
+C:\devHg\Training\TestThreading\TaskScheduler\bin\Debug\TestThreadLibrary.pdb
+C:\devHg\Training\TestThreading\TaskScheduler\bin\Debug\EntityFramework.xml
+C:\devHg\Training\TestThreading\TaskScheduler\obj\Debug\TaskScheduler.csprojResolveAssemblyReference.cache
+C:\devHg\Training\TestThreading\TaskScheduler\obj\Debug\TaskScheduler.dll
+C:\devHg\Training\TestThreading\TaskScheduler\obj\Debug\TaskScheduler.pdb

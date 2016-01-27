@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model TestThreadLibrary.Models.Threads
+<h2>Input Data Here</h2>
+
+@using (Html.BeginForm())
+{
+
+    <label>
+        <input type="text" value="" />
+    </label>
+
+    <label>
+        <input type="text" value="" />
+    </label>
+
+    <label>
+        <input type="text" value="" />
+    </label>
+
+    <label>
+        <input type="text" value="" />
+    </label>
+
+    <label>
+        <input type="text" value="" />
+    </label>
+
+
+    <input type="submit" formmethod="put" />
+}
+<br />
+@if (!Model.Equals(null))
+{
+    <label>
+        <input type="text" value="@Model.Average" />
+    </label>
+    
+    <label>
+        <input type="text" value="@Model.Max" />
+    </label>
+    
+    <label>
+        <input type="text" value="@Model.Min" />
+    </label>
+}

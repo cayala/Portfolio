@@ -1,0 +1,10 @@
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\TestThreadLibrary.dll.config
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\TestThreadLibrary.dll
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\TestThreadLibrary.pdb
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\EntityFramework.dll
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\EntityFramework.xml
+C:\devHg\Training\TestThreading\TestThreadLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\devHg\Training\TestThreading\TestThreadLibrary\obj\Debug\TestThreadLibrary.dll
+C:\devHg\Training\TestThreading\TestThreadLibrary\obj\Debug\TestThreadLibrary.pdb
+C:\devHg\Training\TestThreading\TestThreadLibrary\obj\Debug\TestThreadLibrary.csprojResolveAssemblyReference.cache

@@ -1,0 +1,105 @@
+﻿<h1>Add a recipe</h1>
+<div>
+    <div class="success" ng-show="formSubmitSuccess">
+        <p>Add was successful!!</p>
+    </div>
+    <div class="error" ng-hide="formSubmitError">
+        <p>Error</p>
+    </div>
+    <form ng-submit="addRecipe()" id="AddForm" name="AddForm">
+        <label>Name</label>
+        <input type="text" ng-model="addForm.Name" name="Name" class="addForm" required ng-minlength="1" ng-maxlength="50" />
+        <span ng-show="AddForm.$submitted || AddForm.Name.$touched">
+            <span class="error" ng-show="AddForm.Name.$error.required">Please give a name</span>
+            <span class="error" ng-show="AddForm.Name.$error.minlength">At least 1 character is required for a name</span>
+            <span class="error" ng-show="AddForm.Name.$error.maxlength">A max of 50 characters is allowed</span>
+        </span>
+        <label>Type</label>
+        <select ng-model="addForm.TypeOfDish" class="addForm" name="TypeOfDish" required>
+            <option value="Appitizer">Appitizer</option>
+            <option value="Hors">Hors d' oeurvre</option>
+            <option value="Soup">Soup</option>
+            <option value="Entree">Entree</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+        </select>
+        <span ng-show="AddForm.$submitted">
+            <span class="error" ng-show="AddForm.TypeOfDish.$error.required">Select a dish type</span>
+        </span>
+        <label>Difficulty</label>
+        <select ng-model="addForm.Difficulty" class="addForm" name="Difficulty" required>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+        </select>
+        <span ng-show="AddForm.$submitted">
+            <span class="error" ng-show="AddForm.Difficulty.$error.required">Please make a selection on difficulty</span>
+        </span>
+        <br />
+        <label>Amount of Time</label>
+        <br />
+        <label>Hours</label>
+        <input type="number" min="0" max="24" name="Hours" required ng-model="addForm.Hours" class="addForm" />
+        <span ng-show="AddForm.$submitted || AddForm.Hours.$touched">
+            <span class="error" ng-show="AddForm.Hours.$error.required">Select an hour</span>
+            <span class="error" ng-show="AddForm.Hours.$error.min">No numbers below 0</span>
+            <span class="error" ng-show="AddForm.Hours.$error.max">No numbers above 24</span>
+        </span>
+        <label>Minutes</label>
+        <input type="number" min="0" max="59" ng-model="addForm.Minutes" required class="addForm" name="Minutes" />
+        <span ng-show="AddForm.$submitted || AddForm.Minutes.$touched">
+            <span class="error" ng-show="AddForm.Minutes.$error.required">Please input an amount of minutes</span>
+            <span class="error" ng-show="AddForm.Minutes.$error.min">No numbers below 0</span>
+            <span class="error" ng-show="AddForm.Minutes.$error.max">No numbers above 60</span>
+        </span>
+        <br />
+        <br />
+        <div>
+            <label>Listed Ingredients</label>
+            <ul ng-repeat="ingredient in addForm.Ingredients track by $index">
+                <li class="listMode">
+                    <input type="text" value="ingredient" ng-model="addForm.Ingredients[$index]">
+                    <button class="button" ng-click="deleteIngredient(ingredient)">Delete</button>
+                </li>
+            </ul>
+            <br />
+            <label>Add Ingredient</label>
+            <input type="text" id="ingredient" ng-model="addInputIngreIndtrucValid.Ingredient" name="ingredient" ng-minlength="1" ng-maxlength="50" class="addForm" />
+            <span ng-show="AddForm.$submitted || AddForm.ingredient.$touched">
+                <span class="error" ng-show="AddForm.ingredient.$error.minlength">At least one character is required</span>
+                <span class="error" ng-show="AddForm.ingredient.$error.maxlength">No more than 50 characters</span>
+            </span>
+            <button type="button" ng-click="addIngredient()" class="button">Add</button>
+        </div>
+        <br />
+        <div>
+            <label>Listed Instructions</label>
+            <ul ng-repeat="instruction in addForm.Instructions track by $index">
+                <li>Step {{$index + 1}} <input type="text" value="instruction" ng-model="addForm.Instructions[$index]" /> <button class="button" ng-click="deleteInstruction(instruction)">Delete</button></li>
+            </ul>
+            <br />
+            <label>Add Instruction</label>
+            <input type="text" id="instruction" ng-model="addInputIngreIndtrucValid.Instruction" name="Instruction" ng-minlength="1" ng-maxlength="50" class="addForm" />
+            <span ng-show="AddForm.$submitted || AddForm.Instruction.$touched">
+                <span class="error" ng-show="AddForm.Instruction.$error.minlength">At least 1 character is required</span>
+                <span class="error" ng-show="AddForm.Instruction.$error.maxlength">No more than 50 characters</span>
+            </span>
+            <button type="button" ng-click="addInstruction()" class="button">Add</button>
+        </div>
+        <br />
+        <label>Image</label>
+        <input type="url" ng-model="addForm.Image" class="addForm" ng-required="true" name="Image" />
+        <span ng-show="AddForm.$submitted || AddForm.Image.$touched">
+            <span class="error" ng-show="AddForm.Image.$error.required">An image link is requried</span>
+            <span class="error" ng-show="AddForm.Image.$error.url">This is not a valid url</span>
+        </span>
+        <br />
+        <br />
+        <button class="button" type="submit" ng-disabled="AddForm.$invalid">Submit</button>
+        <button class="button" type="button" ng-click="ResetAddForm()">Reset</button>
+        <img ng-hide="loadingGif" src="http://cdn.shopify.com/s/files/1/0244/7249/t/5/assets/preloader.gif?17099225613513537714" />
+
+    </form>
+</div>

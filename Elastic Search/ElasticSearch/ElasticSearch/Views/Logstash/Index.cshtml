@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-controller="logstash">
+    <h2>LogStash</h2>
+    <table class="table table-striped">
+        <tr>
+            <td>Timestamp</td>
+            <td>Host</td>
+            <td>Path</td>
+            <td>Message</td>
+        </tr>
+        <tr ng-repeat="log in iisLogs">
+            <td>{{log.Timestamp}}</td>
+            <td>{{log.Host}}</td>
+            <td>{{log.Path}}</td>
+            <td>{{log.Message}}</td>
+        </tr>
+    </table>
+</div>
+@section scripts{
+    <script src="~/Scripts/Angular.js"></script>
+    <script src="~/Scripts/AngularServices.js"></script>
+}

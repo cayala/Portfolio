@@ -1,0 +1,7 @@
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\bin\Debug\SeleniumTraining.exe.config
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\bin\Debug\chromedriver.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\bin\Debug\IEDriverServer.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\bin\Debug\SeleniumTraining.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\bin\Debug\SeleniumTraining.pdb
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\obj\Debug\SeleniumTraining.exe
+C:\devHg\Training\SeleniumTraining\SeleniumTraining\obj\Debug\SeleniumTraining.pdb

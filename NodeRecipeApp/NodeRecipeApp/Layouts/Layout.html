@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="/Scripts/Recipe.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div ng-app="app">
+        <div id="wrapper">
+            <div id="header">
+                <header>
+                    <div ng-controller="layout">
+                        <nav>
+                            <a href="#/home" class="navLink">Home</a>
+                            <a href="#/add" class="navLink" ng-click="clearEditForm()">Add</a>
+                            <a href="#/edit" ng-click="hideEditMode()" class="navLink">Edit</a>
+                            <a href="#/delete" class="navLink">Delete</a>
+                            <a href="#/search" ng-click="getAllRecipes()" class="navLink">Search</a>
+                            <a href="#/timer" class="navLink">Timer</a>
+                            <button ng-click="getNum()">GetNum</button>
+                            <span ng-show="htimer" ng-model="timerDisplay" id="htimer"></span>
+                            <button ng-show="htimer" ng-click="pauseTimer()" ng-disabled="layoutDisableButtons.Pause">Pause</button>
+                            <button ng-show="htimer" ng-click="resetTimer()" ng-disabled="layoutDisableButtons.Reset">Reset</button>
+                            <button ng-show="htimer" ng-click="htimer = !htimer">Hide</button>
+                            <button ng-hide="htimer" ng-click="htimer = !htimer">Show</button>
+                            <audio id="soundEffect" src="/SoundEffects/Bike%20Horn-SoundBible.com-602544869.wav"></audio>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+            <div id="content">
+                <div ng-view></div>
+            </div>
+            <div id="footer">
+                <footer>
+                    <p>Don't copy this app or it will be copyright infringement</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/Angular.js"></script>
+    <script src="/Scripts/AngularServices.js"></script>
+</body>
+</html>

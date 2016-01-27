@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrainingModelStoreContainer" CdmEntityContainer="TrainingEntities">
+    <EntitySetMapping Name="MinMaxAvgThreads">
+      <EntityTypeMapping TypeName="TrainingModel.MinMaxAvgThread">
+        <MappingFragment StoreEntitySet="MinMaxAvgThreads">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Minimum" ColumnName="Minimum" />
+          <ScalarProperty Name="Maximum" ColumnName="Maximum" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+          <ScalarProperty Name="LastExecution" ColumnName="LastExecution" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaskLists">
+      <EntityTypeMapping TypeName="TrainingModel.TaskList">
+        <MappingFragment StoreEntitySet="TaskList">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="NextExecution" ColumnName="NextExecution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

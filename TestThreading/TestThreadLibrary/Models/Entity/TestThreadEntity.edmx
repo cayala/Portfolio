@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MinMaxAvgThreads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Minimum" Type="int" />
+          <Property Name="Maximum" Type="int" />
+          <Property Name="Average" Type="int" />
+          <Property Name="LastExecution" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NextExecution" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TaskList">
+          <End Role="TaskList" Type="Self.TaskList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MinMaxAvgThreads" Type="Self.MinMaxAvgThreads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MinMaxAvgThreads">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrainingModelStoreContainer">
+          <EntitySet Name="MinMaxAvgThreads" EntityType="Self.MinMaxAvgThreads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskList" EntityType="Self.TaskList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TaskList" Association="Self.FK_TaskList">
+            <End Role="TaskList" EntitySet="TaskList" />
+            <End Role="MinMaxAvgThreads" EntitySet="MinMaxAvgThreads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MinMaxAvgThread">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Minimum" Type="Int32" />
+          <Property Name="Maximum" Type="Int32" />
+          <Property Name="Average" Type="Int32" />
+          <Property Name="LastExecution" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TaskId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaskList" Relationship="Self.FK_TaskList" FromRole="MinMaxAvgThreads" ToRole="TaskList" />
+        </EntityType>
+        <EntityType Name="TaskList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NextExecution" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="MinMaxAvgThreads" Relationship="Self.FK_TaskList" FromRole="TaskList" ToRole="MinMaxAvgThreads" />
+        </EntityType>
+        <Association Name="FK_TaskList">
+          <End Role="TaskList" Type="Self.TaskList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MinMaxAvgThreads" Type="Self.MinMaxAvgThread" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MinMaxAvgThreads">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrainingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MinMaxAvgThreads" EntityType="Self.MinMaxAvgThread" />
+          <EntitySet Name="TaskLists" EntityType="Self.TaskList" />
+          <AssociationSet Name="FK_TaskList" Association="Self.FK_TaskList">
+            <End Role="TaskList" EntitySet="TaskLists" />
+            <End Role="MinMaxAvgThreads" EntitySet="MinMaxAvgThreads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrainingModelStoreContainer" CdmEntityContainer="TrainingEntities">
+          <EntitySetMapping Name="MinMaxAvgThreads">
+            <EntityTypeMapping TypeName="TrainingModel.MinMaxAvgThread">
+              <MappingFragment StoreEntitySet="MinMaxAvgThreads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Minimum" ColumnName="Minimum" />
+                <ScalarProperty Name="Maximum" ColumnName="Maximum" />
+                <ScalarProperty Name="Average" ColumnName="Average" />
+                <ScalarProperty Name="LastExecution" ColumnName="LastExecution" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskLists">
+            <EntityTypeMapping TypeName="TrainingModel.TaskList">
+              <MappingFragment StoreEntitySet="TaskList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="NextExecution" ColumnName="NextExecution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "CrossDomainManager";
+}
+
+<h2>CrossDomainManager</h2>
+
+<div ng-app="app">
+    <div ng-controller="controller">
+        <div>
+            <label>Delete a domain</label>
+            <form ng-submit="$scope.deleteDomain()">
+                <select ng-options="d for d in domains" ng-model="selectedDomain"></select>
+                <button type="button">Delete</button>
+            </form>
+        </div>
+        <div>
+            <label>Add new domain</label>
+            <form ng-submit="addDomain()">
+                <input type="text" ng-model="newDomain"/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Angular.js"></script>
