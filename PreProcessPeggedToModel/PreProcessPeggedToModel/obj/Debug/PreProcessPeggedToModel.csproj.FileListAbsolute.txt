@@ -1,0 +1,9 @@
+C:\devHg\Training\PreProcessPeggedToModel\PreProcessPeggedToModel\bin\Debug\PreProcessPeggedToModel.exe.config
+C:\devHg\Training\PreProcessPeggedToModel\PreProcessPeggedToModel\obj\Debug\PreProcessPeggedToModel.csprojResolveAssemblyReference.cache
+C:\devHg\Training\PreProcessPeggedToModel\PreProcessPeggedToModel\bin\Debug\PreProcessPeggedToModel.exe
+C:\devHg\Training\PreProcessPeggedToModel\PreProcessPeggedToModel\bin\Debug\PreProcessPeggedToModel.pdb
+C:\devHg\Training\PreProcessPeggedToModel\PreProcessPeggedToModel\obj\Debug\PreProcessPeggedToModel.exe
+C:\devHg\Training\PreProcessPeggedToModel\PreProcessPeggedToModel\obj\Debug\PreProcessPeggedToModel.pdb
+C:\Users\carlos.ayala\Documents\GitHub\Portfolio\PreProcessPeggedToModel\PreProcessPeggedToModel\bin\Debug\PreProcessPeggedToModel.exe.config
+C:\Users\carlos.ayala\Documents\GitHub\Portfolio\PreProcessPeggedToModel\PreProcessPeggedToModel\obj\Debug\PreProcessPeggedToModel.exe
+C:\Users\carlos.ayala\Documents\GitHub\Portfolio\PreProcessPeggedToModel\PreProcessPeggedToModel\obj\Debug\PreProcessPeggedToModel.pdb
