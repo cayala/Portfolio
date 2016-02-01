@@ -5,7 +5,7 @@ declare @partname nvarchar (max)
 
 SET @count = 1
 SET @level = 1
-SET @partname = '3313-395'
+SET @partname = ''
 
 SET @sql = N' SELECT  
 a.assembly_id, 
